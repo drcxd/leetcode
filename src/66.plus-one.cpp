@@ -42,29 +42,25 @@ using namespace std;
 class Solution {
 public:
     vector<int> plusOne(vector<int>& digits) {
-        int n = digits.size();
-        ++digits[n - 1];
-        for (int i = digits.size() - 1; i > 0; --i) {
-            if (digits[i] == 10) {
-                digits[i] = 0;
-                ++digits[i - 1];
-            }
+        int carry = 1;
+        int sum;
+        for (int i = digits.size() - 1; i >= 0; --i) {
+            sum = digits[i] + carry;
+            digits[i] = sum % 10;
+            carry = sum / 10;
         }
-        vector<int> res;
-        if (digits[0] == 0) {
-            res.push_back(1);
+        if (carry > 0) {
+            digits[0] = 1;
+            digits.push_back(0);
         }
-        for (auto i : digits) {
-            res.push_back(i);
-        }
-        return res;
+        return digits;
     }
 };
 
-
 // int main() {
 //     Solution s;
-//     vector<int> digits = { 4, 3, 2, 1 };
+//     // vector<int> digits = { 4, 3, 2, 1 };
+//     vector<int> digits = { 9 };
 //     for (auto i : s.plusOne(digits)) {
 //         cout << i << " ";
 //     }
