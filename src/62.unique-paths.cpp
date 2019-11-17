@@ -59,12 +59,13 @@ public:
         if (m == 1) {
             return 1;
         }
-        for (int i = 1; i <= m - 1; ++i) {
-            int num_of_combination = choose_m_from_n(i - 1, m - 1 - 1);
-            int num_of_placement = choose_m_from_n(i, n);
-            sum += num_of_combination * num_of_placement;
-        }
-        return sum;
+        // for (int i = 1; i <= m - 1; ++i) {
+        //     int num_of_combination = choose_m_from_n(i - 1, m - 1 - 1);
+        //     int num_of_placement = choose_m_from_n(i, n);
+        //     sum += num_of_combination * num_of_placement;
+        // }
+        return choose_m_from_n(m - 1 + n - 1, n - 1);
+        // return sum;
     }
 
     long long choose_m_from_n(int m, int n) {
@@ -84,9 +85,9 @@ public:
     }
 };
 
-// int main() {
-//     Solution s;
-//     cout << s.uniquePaths(3, 2) << endl;
-//     cout << s.uniquePaths(7, 3) << endl;
-//     return 0;
-// }
+int main() {
+    Solution s;
+    cout << s.uniquePaths(3, 2) << endl;
+    cout << s.uniquePaths(7, 3) << endl;
+    return 0;
+}
