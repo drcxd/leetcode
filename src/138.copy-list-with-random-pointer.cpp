@@ -6,6 +6,13 @@ public:
         }
         unordered_map <Node *, Node *> old2new;
 
+        /**
+         * Frist we copy the input list and build a map from the nodes
+         * in the input list to nodes in the new list. Then we
+         * traversal the new list using the map to find out which new
+         * nodes corresponds to the original nodes stored in the
+         * random field and substitute it.
+         */
         Node *copy_head = new Node(head->val, head->next, head->random);
         old2new[head] = copy_head;
 

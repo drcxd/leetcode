@@ -2,6 +2,14 @@
 #include <iostream>
 using namespace std;
 
+/**
+ * We use a set to store which element we have visited. Then we
+ * traverse the grid, if an element is land and it has not been
+ * visited, then we have a new island. We visited every element
+ * adjacent to it, if it is a '1' then it has been visited and
+ * recursively visit the adjacent elements of the element we have just
+ * visited.
+ */
 class Solution {
 public:
     int numIslands(vector<vector<char>> &grid) {
